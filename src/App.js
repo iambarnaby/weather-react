@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import LiveFeed from "./Comps/LiveFeed";
+import WeatherInfo from "./Comps/WeatherInfo";
+import "./App.css";
+import LocalNews from "./Comps/LocalNews";
 
-function App() {
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Searchbar from "./Comps/Searchbar";
+
+function WeatherApp() {
+  const [temp, setTemp] = useState("");
+  const [weather, setWeather] = useState("");
+  const [location, setLocation] = useState("London");
+  const [iconURL, setIcon] = useState("");
+  console.log(process.env);
+  const apiKey = "";
+
+  useEffect(() => {
+    getWeather();
+  }, [location]);
+
+  const setCityName = (cityName) => {
+    setLocation(cityName);
+    console.log("test");
+    getWeather();
+  };
+
+  async function getWeather() {
+    const response = await axios
+      .get(
+        `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.REACT_APP_OW_API_KEY}`
+      )
+      .then((response) => {
+        const data = response.data;
+        setTemp(data.main.temp);
+        setWeather(data.weather[0].description);
+        setIcon(
+          `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+        );
+      });
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Searchbar setCityName={setCityName} />
+      <WeatherInfo temp={{ loc: location, temp, weather: weather, iconURL }} />
+      <LiveFeed location={location} />
+      <LocalNews />
     </div>
   );
 }
 
-export default App;
+export default WeatherApp;
