@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import Searchbar from "./Comps/Searchbar";
 
 function WeatherApp() {
+  console.log("changed");
   const [temp, setTemp] = useState("");
   const [weather, setWeather] = useState("");
   const [location, setLocation] = useState("London");
