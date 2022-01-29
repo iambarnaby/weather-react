@@ -12,8 +12,6 @@ function WeatherApp() {
   const [weather, setWeather] = useState("");
   const [location, setLocation] = useState("London");
   const [iconURL, setIcon] = useState("");
-  console.log(process.env);
-  const apiKey = "";
 
   useEffect(() => {
     getWeather();

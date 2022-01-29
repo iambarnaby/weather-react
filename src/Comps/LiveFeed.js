@@ -5,8 +5,6 @@ import { useEffect } from "react/cjs/react.development";
 const LiveFeed = (props) => {
   const [data, setData] = useState({});
   const [youtubeURL, setYtUrl] = useState();
-
-  const gooAp = "";
   useEffect(() => {
     getVideo();
     console.log("logged");
@@ -15,7 +13,7 @@ const LiveFeed = (props) => {
   async function getVideo() {
     const response = axios
       .get(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${gooAp}&type=video&q=${props.location} live cam`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${process.env.REACT_APP_YT_API_KEY}&type=video&q=${props.location} live cam`
       )
       .then((response) => {
         const dataInit = response.data;
