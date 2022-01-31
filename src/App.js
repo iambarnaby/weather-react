@@ -32,14 +32,14 @@ function WeatherApp() {
   async function getWeather() {
     const response = await axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.REACT_APP_OW_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.REACT_APP_OW_API_KEY}`
       )
       .then((response) => {
         const data = response.data;
         setTemp(data.main.temp);
         setWeather(data.weather[0].description);
         setIcon(
-          `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+          `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
         );
         setFeelsLike(data.main.feels_like);
         setMin(data.main.temp_min);
