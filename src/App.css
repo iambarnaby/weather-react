@@ -114,27 +114,56 @@ caption {
   padding: 50px;
 }
 
-.weather-info.location,
-.weather-info.weather,
+.weather-info-location,
+.weather-info-weather,
 .icon-container,
-.weather-info.temperature,
-.weather-info.time {
+.weather-info-temperature {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.weather-info.location {
+.weather-info-location {
   font-size: 1.5rem;
 }
-.weather-info.weather {
+.weather-info-weather {
   font-size: 1.2rem;
   text-transform: none;
   font-weight: lighter;
 }
 
-.weather-info.temperature {
+.weather-info-temperature {
   font-size: 2rem;
+}
+
+.weather-info-icons {
+  width: 40px;
+  height: auto;
+}
+.sun-time-container {
+  display: flex;
+  align-items: center;
+}
+
+.weather-info {
+  border-bottom: white solid 1px;
+
+  padding: 5px;
+}
+
+.other-info {
+  border-top: white solid;
+  border-radius: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 4fr;
+  grid-gap: 5px;
+  border-top: solid white 3px;
+}
+.other-info-data {
+  position: relative;
+  left: 17vw;
+  bottom: 10px;
 }
 
 /*LIVE FEED*/
