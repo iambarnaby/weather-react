@@ -47,7 +47,6 @@ function WeatherApp() {
         setHumidity(data.main.humidity);
         setWindspeed(data.wind.speed);
         setRise({ sunrise: data.sys.sunrise, sunset: data.sys.sunset });
-        console.log(data);
       });
   }
 
