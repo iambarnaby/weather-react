@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
 const LocalNews = (props) => {
   const [{ articles, loading }, setArticles] = useState({

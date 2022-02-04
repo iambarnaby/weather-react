@@ -75,7 +75,6 @@ function WeatherApp() {
 
       <LiveFeed location={location} />
       <LocalNews country={{ countryCode }} />
-      {}
     </div>
   );
 }
