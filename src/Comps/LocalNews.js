@@ -1,32 +1,40 @@
 import { useEffect, useState } from "react";
-import React from "react";
 import axios from "axios";
-const LocalNews = (props) => {
+import newsExample from "./newsExample.png";
+const LocalNews = (prop) => {
   const [{ articles, loading }, setArticles] = useState({
     articles: [],
-    loading: true,
+    loading: false,
   });
   useEffect(() => {
     setArticles({ articles: [], loading: true });
     const response = axios
       .get(
-        `https://newsapi.org/v2/top-headlines?country=${props.country.countryCode}&pageSize=5&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
+        `https://newsapi.org/v2/top-headlines?country=${prop.country}&pageSize=5&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
       )
       .then((response) => {
         const data = response.data;
-        console.log(data);
+        //console.log(data);
         setArticles({ articles: data.articles, loading: false });
       });
-  }, [props.country.countryCode]);
+  }, [prop.country]);
 
   return (
     <div className="local-news-container">
       <h1>Local News</h1>
       <div className="articles">
-        {loading ? <div>loading...</div> : <></>}
+        {loading ? (
+          <div>
+            loading... newsapi.org now only allows free API calls locally I'll
+            be replacing the api soon. this is how it looks locally:
+            <img src={newsExample} alt="news"></img>
+          </div>
+        ) : (
+          <></>
+        )}
 
         {articles.map((article) => (
-          <div className="article-container">
+          <div key={article.title.toString()} className="article-container">
             <a target="_blank" rel="noreferrer" href={article.url}>
               <img
                 className="article-image"

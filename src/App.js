@@ -23,12 +23,11 @@ function WeatherApp() {
 
   useEffect(() => {
     getWeather();
-    console.log("useEffect");
   }, [location]);
 
   const setCityName = (cityName) => {
     setLocation(cityName);
-    console.log("New City - weather get");
+    //console.log("New City - weather get");
   };
 
   async function getWeather() {
@@ -74,7 +73,8 @@ function WeatherApp() {
       />
 
       <LiveFeed location={location} />
-      <LocalNews country={{ countryCode }} />
+
+      <LocalNews country={countryCode} />
     </div>
   );
 }

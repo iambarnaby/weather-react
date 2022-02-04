@@ -6,7 +6,7 @@ const LiveFeed = (props) => {
   const [youtubeURL, setYtUrl] = useState();
   useEffect(() => {
     getVideo();
-    console.log("logged");
+    //console.log("logged");
   }, [props.location]);
 
   async function getVideo() {
@@ -16,12 +16,11 @@ const LiveFeed = (props) => {
       )
       .then((response) => {
         const dataInit = response.data;
-        console.log(dataInit);
+
         setData(dataInit);
         setYtUrl(
           `https://www.youtube.com/embed/${dataInit.items[0].id.videoId}?autoplay=1`
         );
-        console.log(youtubeURL);
       })
       .catch((err) => {
         console.log(err);
