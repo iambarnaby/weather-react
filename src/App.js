@@ -10,7 +10,7 @@ import Searchbar from "./Comps/Searchbar";
 function WeatherApp() {
   const [temp, setTemp] = useState("");
   const [weather, setWeather] = useState("");
-  const [location, setLocation] = useState("London");
+  const [location, setLocation] = useState("Chicago");
   const [iconURL, setIcon] = useState("");
   const [feelsLike, setFeelsLike] = useState("");
   const [min, setMin] = useState("");
@@ -19,14 +19,16 @@ function WeatherApp() {
   const [humidity, setHumidity] = useState("");
   const [uvIndex, setUV] = useState("");
   const [windspeed, setWindspeed] = useState("");
+  const [countryCode, setCountryCode] = useState("US");
 
   useEffect(() => {
     getWeather();
+    console.log("useEffect");
   }, [location]);
 
   const setCityName = (cityName) => {
     setLocation(cityName);
-    getWeather();
+    console.log("New City - weather get");
   };
 
   async function getWeather() {
@@ -41,12 +43,14 @@ function WeatherApp() {
         setIcon(
           `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
         );
+
         setFeelsLike(data.main.feels_like);
         setMin(data.main.temp_min);
         setMax(data.main.temp_max);
         setHumidity(data.main.humidity);
         setWindspeed(data.wind.speed);
         setRise({ sunrise: data.sys.sunrise, sunset: data.sys.sunset });
+        setCountryCode(data.sys.country);
       });
   }
 
@@ -68,9 +72,10 @@ function WeatherApp() {
           sunset,
         }}
       />
-      <LiveFeed location={location} />
 
-      <LocalNews />
+      <LiveFeed location={location} />
+      <LocalNews country={{ countryCode }} />
+      {}
     </div>
   );
 }

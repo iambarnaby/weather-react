@@ -29,21 +29,19 @@ const LiveFeed = (props) => {
   }
 
   return (
-    <>
-      <div className="live-feed">
-        <div className="iframe-container">
-          <iframe
-            width="1344"
-            height="756"
-            src={youtubeURL}
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
+    <div className="live-feed-container">
+      <div className="iframe-container">
+        <iframe
+          width="1344"
+          height="756"
+          src={youtubeURL}
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
-    </>
+    </div>
   );
 };
 
