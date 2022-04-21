@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+# Freerein App ☔💧
+
+### The goal was to create an app I could personally use to 'travel' the world 🌎 while stuck in lockdown 🔒.
+
+### The app allows you to search any city in the world 🌍 and get local news, current weather and a live feed video of the city if available! It might not be as good as travelling but it's always nice to live vicariously when travelling isn't an option.
+
+### Freerein uses a free weather api to grab weather information of the chosen city 🏣 and a free global news api to fetch appropriate data.
+### Paired with the google youtube api I can fetch a live video from the searched city et viola! A cool, compact view of the world 🌏
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +77,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+-->
